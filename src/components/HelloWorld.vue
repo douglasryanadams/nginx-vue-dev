@@ -1,4 +1,7 @@
 <script setup>
+import {useCounterStore} from "@/stores/counter.js";
+const store = useCounterStore();
+
 defineProps({
   msg: {
     type: String,
@@ -15,6 +18,8 @@ defineProps({
       <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
       <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>.
     </h3>
+    <p>This is some updated content, that changes, every time I save.</p>
+    <button @click="store.increment()">Count is: {{ store.count }}</button>
   </div>
 </template>
 
